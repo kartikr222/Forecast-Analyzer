@@ -4,25 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Forecast Analyzer | Kartik Clarity™</title>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/S4h8hfYR/final-logo-circle-kartik-clarity-logo-circle-png.jpg">
 <meta name="description" content="Diagnose forecast quality using pipeline coverage, win rate, slippage and rep confidence.">
 <style>
-:root{--navy:#0B1E33;--red:#E85D3F;--bg:#F4F5F7;--white:#fff;--muted:#667085;--line:#D9DEE7}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--red)}
-.hero{padding:64px 0 34px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;color:var(--red)}
+/* Kartik Clarity™ brand system: logo palette only - charcoal, white, brand blue. */
+
+:root{--ink:#071018;--blue:#1F6FEA;--bg:#071018;--white:#FFFFFF;--muted:#AAB7C7;--line:#223142}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--blue)}
+.hero{padding:64px 0 34px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;color:var(--blue)}
 h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:14px 0 18px;max-width:820px}
 .lead{font-size:19px;line-height:1.6;color:var(--muted);max-width:720px}
-.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 12px 35px rgba(11,30,51,.06)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;color:var(--navy);background:#fff}
-.actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}button{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;font-size:15px}#analyze{background:var(--navy);color:#fff}#reset{background:#eef0f4;color:var(--navy)}
+.card{background:#0D1825;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;color:var(--white);background:#0D1825}
+.actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}button{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;font-size:15px}#analyze{background:var(--blue);color:var(--white)}#reset{background:#eef0f4;color:var(--white)}
 .results{display:none;margin-top:20px}.score{display:flex;align-items:center;gap:18px;padding:20px;border:1px solid var(--line);border-radius:16px;margin-bottom:16px}.scoreNum{font-size:52px;font-weight:900;letter-spacing:-.06em}.risk{font-weight:900;font-size:20px}.muted{color:var(--muted)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.metric{padding:16px;border:1px solid var(--line);border-radius:14px}.metric b{display:block;font-size:23px;margin-top:4px}.finding{padding:14px 0;border-top:1px solid var(--line);line-height:1.55}.finding strong{display:block;margin-bottom:3px}
 footer{padding:30px 0 0;color:var(--muted);font-size:13px}
 @media(max-width:700px){.grid,.metrics{grid-template-columns:1fr}.hero{padding-top:42px}h1{font-size:48px}}
+
+.site-header{padding:8px 0 4px;border-bottom:1px solid var(--line)}
+.brand-lockup{display:flex;align-items:center;gap:14px}
+.circle-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#fff;display:block}
+.rectangle-logo{display:block;object-fit:contain}
+.header-logo{height:42px;width:auto;max-width:210px}
+@media(max-width:700px){.header-logo{height:36px;max-width:175px}.circle-logo{width:36px;height:36px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand">Kartik <span>Clarity™</span></div></header>
+<header class="site-header">
+  <div class="brand-lockup" aria-label="Kartik Clarity">
+    <img class="circle-logo" src="https://i.ibb.co/S4h8hfYR/final-logo-circle-kartik-clarity-logo-circle-png.jpg" alt="Kartik Clarity circle logo">
+    <img class="rectangle-logo header-logo" src="https://i.ibb.co/0yrLt52h/final-logo-circle-kartik-clarity-logo-rectangle-png.jpg" alt="Kartik Clarity rectangle logo">
+  </div>
+</header>
 <section class="hero"><div class="eyebrow">Forecast Analyzer</div><h1>Is the forecast telling you the truth?</h1><p class="lead">Pressure-test a sales forecast against pipeline coverage, historical win rate, deal slippage and rep confidence. The output is a diagnostic signal - not a promise.</p></section>
 <section class="card">
 <div class="grid">
@@ -40,7 +55,12 @@ footer{padding:30px 0 0;color:var(--muted);font-size:13px}
 <div class="metrics"><div class="metric"><span class="muted">Pipeline coverage</span><b id="coverage">-</b></div><div class="metric"><span class="muted">Expected pipeline value</span><b id="expected">-</b></div><div class="metric"><span class="muted">Slip rate</span><b id="slip">-</b></div></div>
 <div id="findings"></div>
 </section>
-<footer>Forecast Analyzer · Kartik Clarity™ · Diagnose before you prescribe.</footer>
+<footer>
+  <div style="border-top:1px solid var(--line);padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+    <img class="rectangle-logo" src="https://i.ibb.co/0yrLt52h/final-logo-circle-kartik-clarity-logo-rectangle-png.jpg" alt="Kartik Clarity">
+    <span>Forecast Analyzer · Diagnose before you prescribe.</span>
+  </div>
+</footer>
 </div>
 <script>
 const $=id=>document.getElementById(id), money=n=>'$'+Math.round(n).toLocaleString('en-US');
